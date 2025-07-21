@@ -79,7 +79,7 @@ app.post("/quotes", basicAuth, (req, res)=>{
 });
 
 //PUT update one whole quote based on id
-app.put("/quotes/:id", (req, res)=>{
+app.put("/quotes/:id", basicAuth, (req, res)=>{
     const id = parseInt(req.params.id);
     const existingQuote = quotes.find(q => q.id === id);
     
@@ -99,7 +99,7 @@ app.put("/quotes/:id", (req, res)=>{
 });
 
 //PATCH update quote based on id
-app.patch("/quotes/:id", (req, res)=>{
+app.patch("/quotes/:id", basicAuth, (req, res)=>{
     const id = parseInt(req.params.id);
     const existingQuote = quotes.find(q => q.id === id);
 
@@ -119,7 +119,7 @@ app.patch("/quotes/:id", (req, res)=>{
 });
 
 //DELETE a quote based on id
-app.delete("/quotes/:id", (req, res)=>{
+app.delete("/quotes/:id", basicAuth, (req, res)=>{
     const id = parseInt(req.params.id);
     const quoteIdx = quotes.findIndex(i => i.id === id);
     if(!quoteIdx === -1){
